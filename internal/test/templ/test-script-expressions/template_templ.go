@@ -35,7 +35,7 @@ func Script[T any](name string, data T) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `test/templ/test-script-expressions/template.templ`, Line: 4, Col: 11}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/test/templ/test-script-expressions/template.templ`, Line: 4, Col: 11}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -47,7 +47,7 @@ func Script[T any](name string, data T) templ.Component {
 		}
 		templ_7745c5c3_Var3, templ_7745c5c3_Err := templruntime.ScriptContentOutsideStringLiteral(data)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `test/templ/test-script-expressions/template.templ`, Line: 6, Col: 17}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/test/templ/test-script-expressions/template.templ`, Line: 6, Col: 17}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var3)
 		if templ_7745c5c3_Err != nil {
@@ -59,7 +59,7 @@ func Script[T any](name string, data T) templ.Component {
 		}
 		templ_7745c5c3_Var4, templ_7745c5c3_Err := templruntime.ScriptContentInsideStringLiteral(data)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `test/templ/test-script-expressions/template.templ`, Line: 7, Col: 18}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/test/templ/test-script-expressions/template.templ`, Line: 7, Col: 18}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var4)
 		if templ_7745c5c3_Err != nil {
@@ -71,7 +71,7 @@ func Script[T any](name string, data T) templ.Component {
 		}
 		templ_7745c5c3_Var5, templ_7745c5c3_Err := templruntime.ScriptContentInsideStringLiteral(data)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `test/templ/test-script-expressions/template.templ`, Line: 8, Col: 18}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/test/templ/test-script-expressions/template.templ`, Line: 8, Col: 18}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var5)
 		if templ_7745c5c3_Err != nil {
@@ -83,7 +83,7 @@ func Script[T any](name string, data T) templ.Component {
 		}
 		templ_7745c5c3_Var6, templ_7745c5c3_Err := templruntime.ScriptContentInsideStringLiteral(data)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `test/templ/test-script-expressions/template.templ`, Line: 9, Col: 18}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/test/templ/test-script-expressions/template.templ`, Line: 9, Col: 18}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var6)
 		if templ_7745c5c3_Err != nil {
@@ -95,7 +95,7 @@ func Script[T any](name string, data T) templ.Component {
 		}
 		templ_7745c5c3_Var7, templ_7745c5c3_Err := templruntime.ScriptContentOutsideStringLiteral(data)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `test/templ/test-script-expressions/template.templ`, Line: 12, Col: 21}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/test/templ/test-script-expressions/template.templ`, Line: 12, Col: 21}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var7)
 		if templ_7745c5c3_Err != nil {

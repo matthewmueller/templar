@@ -179,6 +179,9 @@ func (c *CLI) Generate(ctx context.Context, in *Generate) error {
 func (c *CLI) generate(ctx context.Context, in *Generate, path string) error {
 	matches, sourceDir, err := c.resolve(c.Dir, path)
 	if err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
 		return err
 	}
 	outDir := resolveDir(c.Dir, in.OutDir)

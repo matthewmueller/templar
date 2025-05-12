@@ -33,7 +33,7 @@ func render(input string) templ.Component {
 			var templ_7745c5c3_Var2 string
 			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs("it was 'a'")
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `test/templ/test-switch/template.templ`, Line: 6, Col: 17}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/test/templ/test-switch/template.templ`, Line: 6, Col: 17}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -43,7 +43,7 @@ func render(input string) templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs("it was something else")
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `test/templ/test-switch/template.templ`, Line: 8, Col: 28}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/test/templ/test-switch/template.templ`, Line: 8, Col: 28}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
