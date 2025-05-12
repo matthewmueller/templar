@@ -1,0 +1,46 @@
+package testelementattributes
+
+css important() {
+	width: 100;
+}
+
+css unimportant() {
+	width: 50;
+}
+
+templ render(p person) {
+	<div
+		style="width: 100;"
+		if p.important {
+			class={ important() }
+		}
+	>Important</div>
+	<div
+		style="width: 100;"
+		if !p.important {
+			class={ unimportant }
+		}
+	>Unimportant</div>
+	<div
+		style="width: 100;"
+		if p.important {
+			class={ important }
+		} else {
+			class={ unimportant }
+		}
+	>Else</div>
+	<div
+		data-script="on click
+                do something
+             end"
+	></div>
+	<h2>HTMX Wildcard attribute</h2>
+	<form
+		hx-post="/api/secret/unlock"
+		hx-target="#secret"
+		hx-target-*="#errors"
+		hx-indicator="#loading-indicator"
+	>
+		<input type="button" value="Unlock"/>
+	</form>
+}

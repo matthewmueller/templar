@@ -1,0 +1,44 @@
+package testcall
+
+templ showAll() {
+	@a()
+	@b(c("C"))
+	@d()
+	@showOne(e())
+	@wrapChildren() {
+		<div>Child content</div>
+	}
+}
+
+templ a() {
+	<div>A</div>
+}
+
+templ b(child templ.Component) {
+	<div>B</div>
+	@child
+}
+
+templ c(text string) {
+	<div>{ text }</div>
+}
+
+templ d() {
+	<div>Legacy call style</div>
+}
+
+templ e() {
+	e
+}
+
+templ showOne(component templ.Component) {
+	<div>
+		@component
+	</div>
+}
+
+templ wrapChildren() {
+	<div id="wrapper">
+		{ children... }
+	</div>
+}
