@@ -14,6 +14,7 @@ import (
 	"github.com/a-h/templ/generator"
 	"github.com/a-h/templ/parser/v2"
 	"github.com/livebud/cli"
+	"github.com/matthewmueller/templar"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -213,9 +214,14 @@ func (c *CLI) generateFile(_ context.Context, sourceDir, targetDir, path string)
 	if err != nil {
 		return fmt.Errorf("error parsing template: %w", err)
 	}
+	tf.Filepath = path
 
 	generated := new(bytes.Buffer)
 	if _, err := generator.Generate(tf, generated, generator.WithFileName(path)); err != nil {
+		return fmt.Errorf("error generating code: %w", err)
+	}
+
+	if err := templar.Generate(generated, tf); err != nil {
 		return fmt.Errorf("error generating code: %w", err)
 	}
 
@@ -223,6 +229,10 @@ func (c *CLI) generateFile(_ context.Context, sourceDir, targetDir, path string)
 	if err != nil {
 		return fmt.Errorf("error formatting code: %w", err)
 	}
+
+	// fmt.Println(string(formatted))
+
+	// return nil
 
 	targetPath := path
 	if filepath.Clean(targetDir) != "." {
