@@ -58,6 +58,8 @@ func (c *CLI) Parse(ctx context.Context, args ...string) error {
 		cmd := cli.Command("generate", "generate code from templates")
 		cmd.Flag("out", "output directory").Short('o').String(&in.OutDir).Default(".")
 		cmd.Args("paths", "paths to templates").Strings(&in.Paths)
+		cmd.Flag("builtin", "use the builtin generator").Bool(&in.Builtin).Default(false)
+		cmd.Flag("format", "format the generated code").Bool(&in.Format).Default(true)
 		cmd.Run(func(ctx context.Context) error { return c.Generate(ctx, in) })
 	}
 
@@ -154,16 +156,18 @@ func (c *CLI) resolve(dir string, path string) (matches []string, sourceDir stri
 	return matches, sourceDir, nil
 }
 
-type Generate struct {
-	Paths  []string
-	OutDir string
-}
-
 func resolveDir(dir string, path string) string {
 	if filepath.IsAbs(path) {
 		return path
 	}
 	return filepath.Join(dir, path)
+}
+
+type Generate struct {
+	Paths   []string
+	OutDir  string
+	Builtin bool
+	Format  bool
 }
 
 func (c *CLI) Generate(ctx context.Context, in *Generate) error {
@@ -190,7 +194,7 @@ func (c *CLI) generate(ctx context.Context, in *Generate, path string) error {
 	for _, path := range matches {
 		path := path
 		eg.Go(func() error {
-			return c.generateFile(ctx, sourceDir, outDir, path)
+			return c.generateFile(ctx, in, sourceDir, outDir, path)
 		})
 	}
 	if err := eg.Wait(); err != nil {
@@ -204,7 +208,7 @@ func extless(path string) string {
 	return strings.TrimSuffix(path, ext)
 }
 
-func (c *CLI) generateFile(_ context.Context, sourceDir, targetDir, path string) error {
+func (c *CLI) generateFile(_ context.Context, in *Generate, sourceDir, targetDir string, path string) error {
 	code, err := os.ReadFile(path)
 	if err != nil {
 		return fmt.Errorf("error reading file %s: %w", path, err)
@@ -217,22 +221,24 @@ func (c *CLI) generateFile(_ context.Context, sourceDir, targetDir, path string)
 	tf.Filepath = path
 
 	generated := new(bytes.Buffer)
-	if _, err := generator.Generate(tf, generated, generator.WithFileName(path)); err != nil {
-		return fmt.Errorf("error generating code: %w", err)
+	if in.Builtin {
+		if _, err := generator.Generate(tf, generated, generator.WithFileName(path)); err != nil {
+			return fmt.Errorf("error generating code: %w", err)
+		}
+	} else {
+		if err := templar.Generate(generated, tf); err != nil {
+			return fmt.Errorf("error generating code: %w", err)
+		}
 	}
 
-	if err := templar.Generate(generated, tf); err != nil {
-		return fmt.Errorf("error generating code: %w", err)
+	// Format the generated code
+	formatted := generated.Bytes()
+	if in.Format {
+		formatted, err = format.Source(generated.Bytes())
+		if err != nil {
+			return fmt.Errorf("error formatting code: %w", err)
+		}
 	}
-
-	formatted, err := format.Source(generated.Bytes())
-	if err != nil {
-		return fmt.Errorf("error formatting code: %w", err)
-	}
-
-	// fmt.Println(string(formatted))
-
-	// return nil
 
 	targetPath := path
 	if filepath.Clean(targetDir) != "." {
