@@ -1,5 +1,5 @@
-// templdev is a runtime package intended to be used with the devmode package to
-// allow for live reloading of templates. It differs from the original templ
+// Package templdev is a runtime package added by the devmode package. It's not
+// intended to be used directly. It differs from the original templ
 // runtime package, where it doesn't rely on environment variables. It also
 // doesn't change the Go file if it's just a text change. This makes it better
 // suited to integrate into build systems and third-party file watchers.

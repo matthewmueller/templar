@@ -1,3 +1,7 @@
+// Package devmode updates the generated *_templ.go file to work better with a
+// third-party build systems and file watchers. It does this by not relying on
+// environment variables and not modifying the Go file if it's just a text
+// change.
 package devmode
 
 import (
