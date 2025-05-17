@@ -4,10 +4,12 @@ package testjsusage
 
 //lint:file-ignore SA4006 This context is only used if a nested component is present.
 
-import "github.com/a-h/templ"
-import templruntime "github.com/a-h/templ/runtime"
-
-import "time"
+import (
+	"github.com/a-h/templ"
+	"github.com/matthewmueller/templar/templdev"
+	templruntime "github.com/a-h/templ/runtime"
+	"time"
+)
 
 var onceHandle = templ.NewOnceHandle()
 
@@ -36,7 +38,7 @@ func TestComponent() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<button onClick=\"")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 1, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -45,7 +47,7 @@ func TestComponent() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\">Click me</button>")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 2, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -61,7 +63,7 @@ func TestComponent() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<script>\n\t\t\tfunction customAlert(msg, date) {\n\t\t\t\talert(msg + \" \" + date);\n\t\t\t}\n\t\t</script>")
+			templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 3, "")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -75,7 +77,7 @@ func TestComponent() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<button onClick=\"")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 4, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -84,7 +86,7 @@ func TestComponent() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "\">Click me</button> ")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 5, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -92,7 +94,7 @@ func TestComponent() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<button onClick=\"")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 6, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -101,7 +103,7 @@ func TestComponent() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "\">Click me</button>")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 7, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -109,7 +111,7 @@ func TestComponent() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<script>\n\t\tfunction onClickEventHandler(event, data) {\n\t\t\talert(event.type);\n\t\t\talert(data)\n\t\t\tevent.preventDefault();\n\t\t}\n\t</script>")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 8, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -117,7 +119,7 @@ func TestComponent() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<button onclick=\"")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 9, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -126,7 +128,7 @@ func TestComponent() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "\">Pass event handler</button>")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 10, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -4,8 +4,11 @@ package testscriptexpressions
 
 //lint:file-ignore SA4006 This context is only used if a nested component is present.
 
-import "github.com/a-h/templ"
-import templruntime "github.com/a-h/templ/runtime"
+import (
+	"github.com/a-h/templ"
+	"github.com/matthewmueller/templar/templdev"
+	templruntime "github.com/a-h/templ/runtime"
+)
 
 func Script[T any](name string, data T) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
@@ -28,7 +31,7 @@ func Script[T any](name string, data T) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<h1>")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 1, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -41,7 +44,7 @@ func Script[T any](name string, data T) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h1><script>\n\t\tvar a = ")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 2, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -53,7 +56,7 @@ func Script[T any](name string, data T) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\n\t\tvar b = \"")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 3, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -65,7 +68,7 @@ func Script[T any](name string, data T) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\"\n\t\tvar c = '")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 4, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -77,7 +80,7 @@ func Script[T any](name string, data T) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "'\n\t\tvar d = `")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 5, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -89,7 +92,7 @@ func Script[T any](name string, data T) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "`\n\t</script><script>\n\t\tconsole.log(")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 6, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -101,7 +104,7 @@ func Script[T any](name string, data T) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, ")\n\t</script>")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 7, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -151,8 +154,8 @@ func AllTests() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Err = Script("object data", struct {
-			Name string
-			Age  int
+			Name	string
+			Age	int
 		}{"Alice", 30}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err

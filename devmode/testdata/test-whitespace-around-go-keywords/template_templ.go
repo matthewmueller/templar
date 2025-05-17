@@ -4,10 +4,12 @@ package testwhitespacearoundgokeywords
 
 //lint:file-ignore SA4006 This context is only used if a nested component is present.
 
-import "github.com/a-h/templ"
-import templruntime "github.com/a-h/templ/runtime"
-
-import "fmt"
+import (
+	"github.com/a-h/templ"
+	"github.com/matthewmueller/templar/templdev"
+	templruntime "github.com/a-h/templ/runtime"
+	"fmt"
+)
 
 func WhitespaceIsConsistentInIf(firstIf, secondIf bool) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
@@ -30,27 +32,27 @@ func WhitespaceIsConsistentInIf(firstIf, secondIf bool) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<button>Start</button> ")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 1, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		if firstIf {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<button>If</button> ")
+			templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 2, "")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		} else if secondIf {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<button>ElseIf</button> ")
+			templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 3, "")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		} else {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<button>Else</button> ")
+			templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 4, "")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<button>End</button>")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 5, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -83,17 +85,17 @@ func WhitespaceIsConsistentInFalseIf() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<button>Start</button> ")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 6, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		if false {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<button>Will Not Render</button> ")
+			templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 7, "")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<button>End</button>")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 8, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -124,23 +126,23 @@ func WhitespaceIsConsistentInSwitch(i int) templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<button>Start</button> ")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 9, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		switch i {
 		case 1:
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<button>1</button> ")
+			templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 10, "")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		default:
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<button>default</button> ")
+			templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 11, "")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<button>End</button>")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 12, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -172,18 +174,18 @@ func WhitespaceIsConsistentInSwitchNoDefault() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<button>Start</button> ")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 13, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		switch false {
 		case true:
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "<button>Will Not Render</button> ")
+			templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 14, "")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<button>End</button>")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 15, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -214,12 +216,12 @@ func WhitespaceIsConsistentInFor(i int) templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<button>Start</button> ")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 16, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		for j := 0; j < i; j++ {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "<button>")
+			templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 17, "")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -232,12 +234,12 @@ func WhitespaceIsConsistentInFor(i int) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</button> ")
+			templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 18, "")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "<button>End</button>")
+		templ_7745c5c3_Err = templdev.WriteString(templ_7745c5c3_Buffer, 19, "")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -15,6 +15,7 @@ import (
 	"github.com/hexops/valast"
 	"github.com/matryer/is"
 	"github.com/matthewmueller/diff"
+	"github.com/matthewmueller/templar/devmode"
 )
 
 var update = flag.Bool("update", false, "update the expected output")
@@ -106,10 +107,10 @@ func TestData(t *testing.T) {
 				is.NoErr(err)
 
 				// Patch with devmode
-				// modified, err := devmode.Transform(templPath, formatted)
-				// is.NoErr(err)
+				modified, err := devmode.Transform(templPath, formatted)
+				is.NoErr(err)
 
-				is.NoErr(golden(genGoPath(templPath), string(formatted)))
+				is.NoErr(golden(genGoPath(templPath), string(modified)))
 				is.NoErr(golden(genTxtPath(templPath), literals))
 			}
 		})
