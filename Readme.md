@@ -8,6 +8,12 @@ Extensions for [Templ](https://github.com/a-h/templ).
 
 - [devmode](./devmode): updates generated `*_templ.go` files to make it easier to support livereload with third-party build systems and file watchers. It does this by not relying on environment variables and only modifying the Go file if it's a non-text change. More details in [this issue](https://github.com/a-h/templ/issues/1108).
 
+## Install
+
+```sh
+go get github.com/matthewmueller/templar
+```
+
 ## Development
 
 First, clone the repo:
