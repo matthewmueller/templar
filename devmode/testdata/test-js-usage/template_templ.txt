@@ -1,0 +1,10 @@
+<button onClick=\"
+\">Click me</button>
+<script>\n\t\t\tfunction customAlert(msg, date) {\n\t\t\t\talert(msg + \" \" + date);\n\t\t\t}\n\t\t</script>
+<button onClick=\"
+\">Click me</button> 
+<button onClick=\"
+\">Click me</button>
+<script>\n\t\tfunction onClickEventHandler(event, data) {\n\t\t\talert(event.type);\n\t\t\talert(data)\n\t\t\tevent.preventDefault();\n\t\t}\n\t</script>
+<button onclick=\"
+\">Pass event handler</button>

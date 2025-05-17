@@ -1,0 +1,2 @@
+<html><head></head><body><style><!-- Some stuff --></style><style>\n        .customClass {\n          border: 1px solid black;\n        }\n      </style><script>\n        $(\"div\").marquee();\n        function test() {\n              window.open(\"https://example.com\")\n        }\n      </script><h1>Hello</h1>
+</body></html>

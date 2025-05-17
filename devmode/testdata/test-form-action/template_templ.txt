@@ -1,0 +1,3 @@
+<form action=\"javascript:alert(&#39;unaffected&#39;);\">Ignored</form><form action=\"
+\">Sanitized</form><form action=\"
+\">Unsanitized</form>

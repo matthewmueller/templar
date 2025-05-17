@@ -1,0 +1,21 @@
+<style>\n\t.test {\n\t\tcolor: #ff0000;\n\t}\n\t</style><div class=\"test\">Style tags are supported</div>
+<div class=\"
+\">CSS components are supported</div>
+<div class=\"
+\" type=\"button\">Both CSS components and constants are supported</div>
+<div class=\"
+\" type=\"button\">Both CSS components and constants are supported</div>
+<div class=\"
+\">Maps can be used to determine if a class should be added or not.</div>
+<div class=\"
+\">KV can be used to conditionally set classes.</div>
+<div class=\"
+\">Pseudo attributes and complex class names are supported.</div>
+<div class=\"
+\">Class names are HTML escaped.</div>
+<div class=\"
+\">CSS components can be used with arguments.</div>
+<div class=\"
+\">CSS components can be used with arguments.</div>
+<div class=\"
+\">Rotate</div>

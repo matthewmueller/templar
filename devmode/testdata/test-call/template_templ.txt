@@ -1,0 +1,11 @@
+<div>Child content</div>
+<div>A</div>
+<div>B</div>
+<div>
+</div>
+<div>Legacy call style</div>
+e
+<div>
+</div>
+<div id=\"wrapper\">
+</div>

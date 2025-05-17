@@ -1,0 +1,7 @@
+<!-- simple html comment -->
+<!--\n\t\tmultiline\n\t\tcomment\n\t-->
+<!--\n\t\t@paragraph(\"commented out composed element\")\n\t-->
+<!-- commented out string expression: { content } --><span>
+</span><!-- <div>comment with html</div> -->
+<p>
+</p>

@@ -14,6 +14,7 @@ import (
 	"github.com/a-h/templ/generator"
 	"github.com/a-h/templ/parser/v2"
 	"github.com/livebud/cli"
+	"github.com/matthewmueller/templar/devmode"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -57,6 +58,8 @@ func (c *CLI) Parse(ctx context.Context, args ...string) error {
 		cmd := cli.Command("generate", "generate code from templates")
 		cmd.Flag("out", "output directory").Short('o').String(&in.OutDir).Default(".")
 		cmd.Args("paths", "paths to templates").Strings(&in.Paths)
+		cmd.Flag("format", "format the generated code").Bool(&in.Format).Default(true)
+		cmd.Flag("dev", "generate dev mode code").Short('D').Bool(&in.DevMode).Default(false)
 		cmd.Run(func(ctx context.Context) error { return c.Generate(ctx, in) })
 	}
 
@@ -153,16 +156,18 @@ func (c *CLI) resolve(dir string, path string) (matches []string, sourceDir stri
 	return matches, sourceDir, nil
 }
 
-type Generate struct {
-	Paths  []string
-	OutDir string
-}
-
 func resolveDir(dir string, path string) string {
 	if filepath.IsAbs(path) {
 		return path
 	}
 	return filepath.Join(dir, path)
+}
+
+type Generate struct {
+	Paths   []string
+	OutDir  string
+	Format  bool
+	DevMode bool
 }
 
 func (c *CLI) Generate(ctx context.Context, in *Generate) error {
@@ -189,7 +194,7 @@ func (c *CLI) generate(ctx context.Context, in *Generate, path string) error {
 	for _, path := range matches {
 		path := path
 		eg.Go(func() error {
-			return c.generateFile(ctx, sourceDir, outDir, path)
+			return c.generateFile(ctx, in, sourceDir, outDir, path)
 		})
 	}
 	if err := eg.Wait(); err != nil {
@@ -203,25 +208,38 @@ func extless(path string) string {
 	return strings.TrimSuffix(path, ext)
 }
 
-func (c *CLI) generateFile(_ context.Context, sourceDir, targetDir, path string) error {
-	code, err := os.ReadFile(path)
+func (c *CLI) generateFile(_ context.Context, in *Generate, sourceDir, targetDir string, path string) error {
+	sourceCode, err := os.ReadFile(path)
 	if err != nil {
 		return fmt.Errorf("error reading file %s: %w", path, err)
 	}
 
-	tf, err := parser.ParseString(string(code))
+	tf, err := parser.ParseString(string(sourceCode))
 	if err != nil {
 		return fmt.Errorf("error parsing template: %w", err)
 	}
+	tf.Filepath = path
 
 	generated := new(bytes.Buffer)
-	if _, err := generator.Generate(tf, generated, generator.WithFileName(path)); err != nil {
+	out, err := generator.Generate(tf, generated, generator.WithFileName(path))
+	if err != nil {
 		return fmt.Errorf("error generating code: %w", err)
 	}
 
-	formatted, err := format.Source(generated.Bytes())
-	if err != nil {
-		return fmt.Errorf("error formatting code: %w", err)
+	code := generated.Bytes()
+	if in.DevMode {
+		code, err = devmode.Transform(path, code)
+		if err != nil {
+			return fmt.Errorf("error transforming code for devmode: %w", err)
+		}
+	}
+
+	// Format the generated code
+	if in.Format {
+		code, err = format.Source(code)
+		if err != nil {
+			return fmt.Errorf("error formatting code: %w", err)
+		}
 	}
 
 	targetPath := path
@@ -233,14 +251,23 @@ func (c *CLI) generateFile(_ context.Context, sourceDir, targetDir, path string)
 		targetPath = filepath.Join(targetDir, relPath)
 	}
 	outDir, outPath := filepath.Split(targetPath)
-	outBase := extless(outPath) + "_templ.go"
-	outPath = filepath.Join(outDir, outBase)
+	outBaseGo := extless(outPath) + "_templ.go"
+	outPathGo := filepath.Join(outDir, outBaseGo)
 
 	if err := os.MkdirAll(outDir, 0755); err != nil {
 		return fmt.Errorf("error creating directory %s: %w", outDir, err)
 	}
-	if err := os.WriteFile(outPath, formatted, 0644); err != nil {
-		return fmt.Errorf("error writing file %s: %w", outPath, err)
+	if err := os.WriteFile(outPathGo, code, 0644); err != nil {
+		return fmt.Errorf("error writing file %s: %w", outPathGo, err)
+	}
+
+	if in.DevMode {
+		outCodeTxt := strings.Join(out.Literals, "\n")
+		outBaseTxt := extless(outPath) + "_templ.txt"
+		outPathTxt := filepath.Join(outDir, outBaseTxt)
+		if err := os.WriteFile(outPathTxt, []byte(outCodeTxt), 0644); err != nil {
+			return fmt.Errorf("error writing file %s: %w", outPathTxt, err)
+		}
 	}
 
 	return nil

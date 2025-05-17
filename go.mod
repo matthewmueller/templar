@@ -3,15 +3,21 @@ module github.com/matthewmueller/templar
 go 1.24.0
 
 require (
-	github.com/a-h/htmlformat v0.0.0-20250209131833-673be874c677
 	github.com/a-h/templ v0.3.858-0.20250508081754-9f9a1a32f3b1
-	github.com/google/go-cmp v0.6.0
+	github.com/hexops/valast v1.4.4
 	github.com/livebud/cli v0.0.17
+	github.com/matryer/is v1.4.1
+	github.com/matthewmueller/diff v0.0.3
 	golang.org/x/sync v0.13.0
+	golang.org/x/tools v0.32.0
 )
 
 require (
 	github.com/a-h/parse v0.0.0-20250122154542-74294addb73e // indirect
+	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
-	golang.org/x/net v0.39.0 // indirect
+	github.com/lithammer/dedent v1.1.0 // indirect
+	github.com/sergi/go-diff v1.3.1 // indirect
+	golang.org/x/mod v0.24.0 // indirect
+	mvdan.cc/gofumpt v0.7.0 // indirect
 )

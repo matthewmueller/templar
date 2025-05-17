@@ -1,0 +1,10 @@
+<p>This is some text. 
+So is this.
+</p>
+<p>Inline text <b>is spaced properly</b> without adding extra spaces.</p>
+<p>newlines and other whitespace are stripped but it is normalised like HTML.</p>
+<p>templ allows 
+ to be included in sentences.</p>
+<div>
+ 
+</div>

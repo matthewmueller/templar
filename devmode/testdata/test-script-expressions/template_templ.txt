@@ -1,0 +1,7 @@
+<h1>
+</h1><script>\n\t\tvar a = 
+\n\t\tvar b = \"
+\"\n\t\tvar c = '
+'\n\t\tvar d = `
+`\n\t</script><script>\n\t\tconsole.log(
+)\n\t</script>

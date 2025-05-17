@@ -1,0 +1,6 @@
+<ul><li>
+</li>
+<li>the if passed</li>
+<li>the else if failed</li>
+<li>the else if passed</li>
+</ul>
