@@ -1,7 +1,9 @@
 package testhtml
 
 import (
+	"context"
 	_ "embed"
+	"os"
 	"testing"
 
 	"github.com/a-h/templ/generator/htmldiff"
@@ -15,7 +17,7 @@ func Test(t *testing.T) {
 		name:  "Luiz Bonfa",
 		email: "luiz@example.com",
 	})
-
+	component.Render(context.Background(), os.Stdout)
 	diff, err := htmldiff.Diff(component, expected)
 	if err != nil {
 		t.Fatal(err)
