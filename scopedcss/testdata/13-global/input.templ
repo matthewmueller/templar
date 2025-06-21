@@ -1,0 +1,32 @@
+package main
+
+templ Header(email string, success bool) {
+	<header>
+		<nav class="buttons">
+			@Button("mailto:" + email) {
+				Contact
+			}
+			@Button("/faq") {
+				FAQ
+			}
+			@SlackButton(success)
+		</nav>
+	</header>
+	<style scoped>
+		.buttons {
+			display: flex;
+			align-items: center;
+			position: absolute;
+			right: 10px;
+			top: 20px;
+		}
+
+		.buttons > :global(*) {
+			margin-right: 15px;
+		}
+
+		.buttons > :global(*:last-child) {
+			margin-right: 0px;
+		}
+	</style>
+}

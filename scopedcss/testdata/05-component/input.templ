@@ -1,0 +1,16 @@
+package main
+
+templ Main(Component) {
+	<div>
+		<span>test</span>
+		@Component() {
+			<span>inner 1</span>
+			<span>inner 2</span>
+		}
+	</div>
+	<style scoped>
+		span {
+			color: red;
+		}
+	</style>
+}

@@ -23,7 +23,6 @@ func TestData(dir string) (dirs []string, err error) {
 		return nil, err
 	}
 	for _, d := range des {
-		fmt.Println(d.Name())
 		if !d.IsDir() || strings.HasPrefix(d.Name(), ".") || strings.HasPrefix(d.Name(), "_") {
 			continue
 		}
@@ -84,6 +83,10 @@ func TxtPath(templPath string) string {
 	return extless + "_templ.txt"
 }
 
+func TemplPath(templPath string) string {
+	return filepath.Join(filepath.Dir(templPath), "expect.templ")
+}
+
 func CSSPath(templPath string) string {
 	extless := strings.TrimSuffix(templPath, ".templ")
 	return extless + ".css"
@@ -91,6 +94,12 @@ func CSSPath(templPath string) string {
 
 func Parse(templPath, templCode string) (*parser.TemplateFile, error) {
 	return parser.ParseString(templCode)
+}
+
+func Format(tf *parser.TemplateFile) (string, error) {
+	code := new(bytes.Buffer)
+	tf.Write(code)
+	return code.String(), nil
 }
 
 func Generate(templPath string, templAst *parser.TemplateFile) ([]byte, string, error) {

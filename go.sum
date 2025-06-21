@@ -43,6 +43,8 @@ github.com/lithammer/dedent v1.1.0/go.mod h1:jrXYCQtgg0nJiN+StA2KgR7w6CiQNv9Fd/Z
 github.com/matryer/is v1.4.0/go.mod h1:8I/i5uYgLzgsgEloJE1U6xx5HkBQpAZvepWuujKwMRU=
 github.com/matryer/is v1.4.1 h1:55ehd8zaGABKLXQUe2awZ99BD/PTc2ls+KV/dXphgEQ=
 github.com/matryer/is v1.4.1/go.mod h1:8I/i5uYgLzgsgEloJE1U6xx5HkBQpAZvepWuujKwMRU=
+github.com/matthewmueller/css v0.0.4 h1:gvV6mBFhnfpdshrxYZYhWWwR1RnM7OF+nW7+tiSOaak=
+github.com/matthewmueller/css v0.0.4/go.mod h1:+fR/nnzjQ8IffA72mTgpTPlSK/A2m1ixC+SJ2kaeM2o=
 github.com/matthewmueller/diff v0.0.3 h1:HNtVWIW/9mbM+7CKGW+k/tUr9ClFBO4Le+kS/5n2xDQ=
 github.com/matthewmueller/diff v0.0.3/go.mod h1:8V0QzU6IE7fmlOlE7NtXAeMkjB8cI9Cx4b1B7LNrz2U=
 github.com/mattn/go-colorable v0.1.14 h1:9A9LHSqF/7dyVVX6g0U9cwm9pG3kP9gSzcuIPHPsaIE=

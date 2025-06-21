@@ -1,0 +1,55 @@
+package main
+
+type Comment struct {
+	Author    string
+	CreatedAt string
+	Text      string
+	Children  []*Comment
+}
+
+templ Component(comment *Comment) {
+	show := true
+	<div class="comment">
+		<div class="header">
+			<a class="fold" href="#" onclick={ func() { show = !show } }>
+				if show {
+					↓
+				} else {
+					→
+				}
+			</a>
+			{ " " }
+			{ comment.Author } { timeago(comment.CreatedAt) }
+		</div>
+		if show {
+		}
+		<div class="body" unsafeHTML={ comment.Text }></div>
+		for child := range comment.Children {
+			@Component(child)
+		}
+	</div>
+	<style scoped>
+		.comment {
+			padding: 10px;
+		}
+		.header {
+			color: gray;
+			font-size: 75%;
+		}
+		.fold {
+			text-decoration: none;
+			color: inherit;
+		}
+		.body {
+			padding-left: 13px;
+			font-size: 14px;
+		}
+		.body :global(a) {
+			text-decoration: none;
+			color: inherit;
+		}
+		.body :global(a:hover) {
+			text-decoration: underline;
+		}
+	</style>
+}

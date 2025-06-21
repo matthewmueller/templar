@@ -1,0 +1,51 @@
+package main
+
+templ Main() {
+	<div>
+		<span>
+			test
+			// this should not be transpiled
+			<style>
+				div {
+					color: red;
+				}
+			</style>
+		</span>
+	</div>
+	<style scoped>
+		span {
+			color: red;
+		}
+	</style>
+}
+
+templ Test() {
+	<div>
+		<span>
+			test
+			// this should not be transpiled
+			<style>
+				div {
+					color: red;
+				}
+			</style>
+			@Component() {
+				// this should not be transpiled
+				<style>
+					div {
+						color: red;
+					}
+				</style>
+				// this should not be transpiled
+				<style>{styles}</style>
+			}
+		</span>
+		// this should not be transpiled
+		<style>{styles}</style>
+	</div>
+	<style scoped>
+		span {
+			color: red;
+		}
+	</style>
+}

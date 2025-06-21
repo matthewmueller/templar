@@ -1,0 +1,41 @@
+package main
+
+templ Test1(Component, attrs) {
+	<div>
+		<span data-test="test">
+			test
+		</span>
+		@Component()
+	</div>
+	<style scoped>
+		span {
+			color: red;
+		}
+	</style>
+}
+
+templ Test2() {
+	<span>test</span>
+}
+
+templ Test3() {
+	<div>
+		<span>test</span>
+	</div>
+	<style scoped>
+		span {
+			color: red;
+		}
+	</style>
+}
+
+templ Render() {
+	<div>
+		<p>test</p>
+	</div>
+	<style scoped>
+		p {
+			color: red;
+		}
+	</style>
+}

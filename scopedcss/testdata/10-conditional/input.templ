@@ -1,0 +1,38 @@
+package main
+
+templ SimpleFragment() {
+	<div>
+		<p
+			class="one"
+			if true {
+				class="two"
+			} else {
+				class="three"
+			}
+		>1</p>
+		<p
+			if true {
+				class="two"
+			} else {
+				class="three"
+			}
+		>2</p>
+		<p
+			if true {
+				class="two"
+			}
+		>3</p>
+		<p
+			if true {
+				test="two"
+			} else {
+				class="two"
+			}
+		>4</p>
+	</div>
+	<style scoped>
+		p {
+			color: orange;
+		}
+	</style>
+}

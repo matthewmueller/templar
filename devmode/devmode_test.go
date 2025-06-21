@@ -16,7 +16,7 @@ func TestData(t *testing.T) {
 	dirs, err := testutil.TestData("testdata")
 	is.NoErr(err)
 	for _, dir := range dirs {
-		t.Run(dir, func(t *testing.T) {
+		t.Run(filepath.Base(dir), func(t *testing.T) {
 			is := is.New(t)
 			templPaths, err := filepath.Glob(filepath.Join(dir, "*.templ"))
 			is.NoErr(err)

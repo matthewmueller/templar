@@ -6,6 +6,7 @@ require (
 	github.com/a-h/templ v0.3.898
 	github.com/hexops/valast v1.5.0
 	github.com/matryer/is v1.4.1
+	github.com/matthewmueller/css v0.0.4
 	github.com/matthewmueller/diff v0.0.3
 	golang.org/x/tools v0.34.0
 )

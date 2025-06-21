@@ -1,0 +1,31 @@
+package main
+
+type Comment struct {
+	Author    string
+	CreatedAt string
+	Text      string
+	Children  []*Comment
+}
+
+templ Component(comment *Comment) {
+	show := true
+	<div class="jsx-b142c comment">
+		<div class="jsx-b142c header">
+			<a class="jsx-b142c fold" href="#" onclick={ func() { show = !show } }>
+				if show {
+					↓
+				} else {
+					→
+				}
+			</a>
+			{ " " }
+			{ comment.Author } { timeago(comment.CreatedAt) }
+		</div>
+		if show {
+		}
+		<div class="jsx-b142c body" unsafeHTML={ comment.Text }></div>
+		for child := range comment.Children {
+			@Component(child)
+		}
+	</div>
+}

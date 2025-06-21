@@ -1,0 +1,25 @@
+package main
+
+templ Main(Element templ.Component) {
+	<div>
+		<div data-test="test"></div>
+		<div class></div>
+		<div class="test"></div>
+		<div class={ "test" }></div>
+		<div class={ `test` }></div>
+		<div class={ "test " + test }></div>
+		<div class={ "test" }></div>
+		<div class={ test }></div>
+		<div class={ test + "test" }></div>
+		<div class={ test + test2("test") }></div>
+		<div class={ nil }></div>
+		<div class={ false }></div>
+		<div class={ "test" } data-test></div>
+		<div data-test class={ "test" }></div>
+		<div class={ "test" } data-test="test"></div>
+		@Element()
+	</div>
+	<style scoped>
+		div { color: red }
+	</style>
+}
