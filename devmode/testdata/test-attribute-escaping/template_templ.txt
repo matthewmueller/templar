@@ -1,2 +1,2 @@
 <div><a href=\"
-\">text</a></div><div><button hx-post=\"/click\" hx-trigger=\"click\" hx-vals=\"{&#34;val&#34;:&#34;Value&#34;}\">Click</button></div>
+\">text</a></div><div><button hx-post=\"/click\" hx-trigger=\"click\" hx-vals='{\"val\":\"Value\"}'>Click</button></div>

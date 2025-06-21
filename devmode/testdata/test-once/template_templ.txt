@@ -1,4 +1,4 @@
 <script>\n\t\t\tfunction hello(name) {\n\t\t\t\talert('Hello, ' + name + '!');\n\t\t\t}\n\t\t</script>
 <input type=\"button\" value=\"
 \" data-name=\"
-\" onclick=\"hello(this.getAttribute(&#39;data-name&#39;))\">
+\" onclick=\"hello(this.getAttribute('data-name'))\">
