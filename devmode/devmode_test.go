@@ -23,7 +23,11 @@ func TestData(t *testing.T) {
 			for _, templPath := range templPaths {
 				templCode, err := os.ReadFile(templPath)
 				is.NoErr(err)
-				generated, literals, err := testutil.Generate(templPath, string(templCode))
+
+				templAst, err := testutil.Parse(templPath, string(templCode))
+				is.NoErr(err)
+
+				generated, literals, err := testutil.Generate(templPath, templAst)
 				is.NoErr(err)
 
 				// Patch with devmode
@@ -133,10 +137,16 @@ templ wrapChildren() {
 }
 `
 
-	oneGen, oneLits, err := testutil.Generate("testcall.templ", one)
+	oneAst, err := testutil.Parse("testcall.templ", one)
 	is.NoErr(err)
 
-	twoGen, twoLits, err := testutil.Generate("testcall.templ", two)
+	oneGen, oneLits, err := testutil.Generate("testcall.templ", oneAst)
+	is.NoErr(err)
+
+	twoAst, err := testutil.Parse("testcall.templ", two)
+	is.NoErr(err)
+
+	twoGen, twoLits, err := testutil.Generate("testcall.templ", twoAst)
 	is.NoErr(err)
 
 	is.True(!bytes.Equal(oneGen, twoGen)) // generated code should be different

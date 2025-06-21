@@ -23,6 +23,7 @@ func TestData(dir string) (dirs []string, err error) {
 		return nil, err
 	}
 	for _, d := range des {
+		fmt.Println(d.Name())
 		if !d.IsDir() || strings.HasPrefix(d.Name(), ".") || strings.HasPrefix(d.Name(), "_") {
 			continue
 		}
@@ -83,20 +84,16 @@ func TxtPath(templPath string) string {
 	return extless + "_templ.txt"
 }
 
-func Generate(templPath, templCode string, visitors ...parser.Visitor) ([]byte, string, error) {
-	// Parse the template code
-	templAst, err := parser.ParseString(templCode)
-	if err != nil {
-		return nil, "", fmt.Errorf("failed to parse %s: %w", templPath, err)
-	}
+func CSSPath(templPath string) string {
+	extless := strings.TrimSuffix(templPath, ".templ")
+	return extless + ".css"
+}
 
-	// Run visitors on the AST
-	for _, visitor := range visitors {
-		if err := templAst.Visit(visitor); err != nil {
-			return nil, "", fmt.Errorf("failed to visit %s: %w", templPath, err)
-		}
-	}
+func Parse(templPath, templCode string) (*parser.TemplateFile, error) {
+	return parser.ParseString(templCode)
+}
 
+func Generate(templPath string, templAst *parser.TemplateFile) ([]byte, string, error) {
 	// Generate the Go code from the template AST
 	generated := new(bytes.Buffer)
 	out, err := generator.Generate(templAst, generated, generator.WithFileName(templPath))
