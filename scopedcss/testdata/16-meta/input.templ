@@ -1,0 +1,28 @@
+package main
+
+templ Main(Component) {
+	<div>
+		<span>test</span>
+		@head() {
+			<title>My Page Title</title>
+			<link rel="stylesheet"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<script></script>
+			<base/>
+			<meta charset="UTF-8"/>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+			<meta name="description" content="A description of the page"/>
+			<meta name="keywords" content="templ, example, head, elements"/>
+			<meta name="author" content="Your Name"/>
+			<link rel="icon" href="/favicon.ico"/>
+			<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+			<meta name="theme-color" content="#ffffff"/>
+			<noscript></noscript>
+		}
+	</div>
+	<style scoped>
+		span {
+			color: red;
+		}
+	</style>
+}

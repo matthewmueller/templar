@@ -9,6 +9,17 @@ import (
 	"github.com/a-h/templ/parser/v2/visitor"
 )
 
+var headElements = map[string]bool{
+	"head":     true,
+	"link":     true,
+	"meta":     true,
+	"style":    true,
+	"title":    true,
+	"base":     true,
+	"script":   true,
+	"noscript": true,
+}
+
 // Prepend adds a class to elements in the script
 func Prepend(className string, templ *parser.HTMLTemplate) error {
 	v := visitor.New()
@@ -20,7 +31,7 @@ func Prepend(className string, templ *parser.HTMLTemplate) error {
 		if el.Name == "head" {
 			return visitElement(el)
 		}
-		if len(el.Name) == 0 || !isLower(el.Name[0]) {
+		if len(el.Name) == 0 || !isLower(el.Name[0]) || headElements[el.Name] {
 			return visitElement(el)
 		}
 		attrs, err := updateAttributes(className, el.Attributes)
