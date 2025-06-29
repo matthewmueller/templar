@@ -1,0 +1,22 @@
+package main
+
+templ Main() {
+	<main class="main">
+		<blockquote class="one">Code is like humor. When you have to explain it, it’s bad.</blockquote>
+		<blockquote class="two">Code is like humor. When you have to explain it, it’s bad.</blockquote>
+	</main>
+	<style scoped>
+		blockquote.one {
+			quotes: "“" "”" "‘" "’";
+		}
+		blockquote.two {
+			quotes: '“' '”' '‘' '’';
+		}
+		blockquote::before {
+			content: open-quote;
+		}
+		blockquote::after {
+			content: close-quote;
+		}
+	</style>
+}

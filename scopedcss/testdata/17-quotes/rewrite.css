@@ -1,0 +1,4 @@
+blockquote.one.css-4i4Kcn { quotes: "“" "”" "‘" "’" }
+blockquote.two.css-4i4Kcn { quotes: '“' '”' '‘' '’' }
+blockquote.css-4i4Kcn::before { content: open-quote }
+blockquote.css-4i4Kcn::after { content: close-quote }
