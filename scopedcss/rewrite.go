@@ -11,6 +11,9 @@ import (
 	"github.com/matthewmueller/templar/internal/murmur"
 )
 
+// Rewrite processes a template file, extracting scoped CSS styles from
+// <style scoped> elements, appending them to a CSS string, and removing
+// those elements from the template.
 func Rewrite(path string, tf *parser.TemplateFile) (css string, err error) {
 	v := visitor.New()
 	styles := new(bytes.Buffer)

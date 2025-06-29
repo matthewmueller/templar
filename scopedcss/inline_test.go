@@ -10,7 +10,7 @@ import (
 	"github.com/matthewmueller/templar/scopedcss"
 )
 
-func TestData(t *testing.T) {
+func TestInline(t *testing.T) {
 	is := is.New(t)
 	dirs, err := testutil.TestData("testdata")
 	is.NoErr(err)
@@ -24,15 +24,14 @@ func TestData(t *testing.T) {
 			templAst, err := testutil.Parse(templPath, string(templCode))
 			is.NoErr(err)
 
-			css, err := scopedcss.Rewrite(templPath, templAst)
+			err = scopedcss.Inline(templPath, templAst)
 			is.NoErr(err)
 
 			actual, err := testutil.Format(templAst)
 			is.NoErr(err)
 
 			dir := filepath.Dir(templPath)
-			is.NoErr(testutil.Golden(filepath.Join(dir, "expect.templ"), actual))
-			is.NoErr(testutil.Golden(filepath.Join(dir, "expect.css"), css))
+			is.NoErr(testutil.Golden(filepath.Join(dir, "inline.templ"), actual))
 		})
 	}
 }
