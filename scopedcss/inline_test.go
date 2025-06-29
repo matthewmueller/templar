@@ -24,7 +24,9 @@ func TestInline(t *testing.T) {
 			templAst, err := testutil.Parse(templPath, string(templCode))
 			is.NoErr(err)
 
-			err = scopedcss.Inline(templPath, templAst)
+			err = scopedcss.Inline(templPath, templAst, func(css string) string {
+				return css
+			})
 			is.NoErr(err)
 
 			actual, err := testutil.Format(templAst)
