@@ -2,12 +2,12 @@ package main
 
 templ Button(href string) {
 	@scopedcss_Button.Once() {
-		<style>button.jsx-4rSgmn { outline: none; height: 33px; border: 1px solid #ccced1; text-decoration: none; background: white; border-radius: 6px; padding: 6px 11px 8px 11px; display: inline-block; user-select: none; color: #3b434b; font-size: 15px; font-weight: 700; cursor: pointer }
-button.jsx-4rSgmn:hover { border-color: #aaa }
-button.jsx-4rSgmn:active { border-color: #aaa }
+		<style>button.css-4rSgmn { outline: none; height: 33px; border: 1px solid #ccced1; text-decoration: none; background: white; border-radius: 6px; padding: 6px 11px 8px 11px; display: inline-block; user-select: none; color: #3b434b; font-size: 15px; font-weight: 700; cursor: pointer }
+button.css-4rSgmn:hover { border-color: #aaa }
+button.css-4rSgmn:active { border-color: #aaa }
 </style>
 	}
-	<button href={ href } class="jsx-4rSgmn">
+	<button href={ href } class="css-4rSgmn">
 		{ children }
 	</button>
 }

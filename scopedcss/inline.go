@@ -15,7 +15,7 @@ import (
 // template file, only including them once.
 func Inline(path string, tf *parser.TemplateFile) (err error) {
 	v := visitor.New()
-	prefix := "jsx-"
+	prefix := "css-"
 
 	var onces []*parser.TemplateFileGoExpression
 

@@ -2,11 +2,11 @@ package main
 
 templ Main() {
 	@scopedcss_Main.Once() {
-		<style>span.jsx-1ays6u { color: red }
+		<style>span.css-1ays6u { color: red }
 </style>
 	}
-	<div class="jsx-1ays6u">
-		<span class="jsx-1ays6u">
+	<div class="css-1ays6u">
+		<span class="css-1ays6u">
 			test
 			// this should not be transpiled
 			<style>
@@ -20,11 +20,11 @@ templ Main() {
 
 templ Test() {
 	@scopedcss_Test.Once() {
-		<style>span.jsx-1ays6u { color: red }
+		<style>span.css-1ays6u { color: red }
 </style>
 	}
-	<div class="jsx-1ays6u">
-		<span class="jsx-1ays6u">
+	<div class="css-1ays6u">
+		<span class="css-1ays6u">
 			test
 			// this should not be transpiled
 			<style>

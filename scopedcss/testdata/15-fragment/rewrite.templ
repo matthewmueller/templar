@@ -9,9 +9,9 @@ type Comment struct {
 
 templ Component(comment *Comment) {
 	show := true
-	<div class="jsx-b142c comment">
-		<div class="jsx-b142c header">
-			<a class="jsx-b142c fold" href="#" onclick={ func() { show = !show } }>
+	<div class="css-b142c comment">
+		<div class="css-b142c header">
+			<a class="css-b142c fold" href="#" onclick={ func() { show = !show } }>
 				if show {
 					↓
 				} else {
@@ -23,7 +23,7 @@ templ Component(comment *Comment) {
 		</div>
 		if show {
 		}
-		<div class="jsx-b142c body" unsafeHTML={ comment.Text }></div>
+		<div class="css-b142c body" unsafeHTML={ comment.Text }></div>
 		for child := range comment.Children {
 			@Component(child)
 		}

@@ -1,3 +1,3 @@
-.cloud-1.jsx-3dTDxJ { background-image: url("/static/images/cloud-1.svg"); position: absolute; width: 159px; height: 92px; top: 50px; right: 800px; animation: float-jsx3dTDxJ infinite 5s ease-in }
-.cloud-2.jsx-3dTDxJ { background-image: url("/static/images/cloud-2.svg"); position: absolute; height: 128px; width: 228px; right: 500px; top: 30px; animation: float-jsx3dTDxJ infinite 5s ease-in }
-@keyframes float-jsx3dTDxJ { 0% { transform: translate(0, 0) } 50% { transform: translate(7px, 0px) rotate(5deg) } }
+.cloud-1.css-3dTDxJ { background-image: url("/static/images/cloud-1.svg"); position: absolute; width: 159px; height: 92px; top: 50px; right: 800px; animation: float-css3dTDxJ infinite 5s ease-in }
+.cloud-2.css-3dTDxJ { background-image: url("/static/images/cloud-2.svg"); position: absolute; height: 128px; width: 228px; right: 500px; top: 30px; animation: float-css3dTDxJ infinite 5s ease-in }
+@keyframes float-css3dTDxJ { 0% { transform: translate(0, 0) } 50% { transform: translate(7px, 0px) rotate(5deg) } }

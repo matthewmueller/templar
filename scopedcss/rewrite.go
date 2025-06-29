@@ -17,7 +17,7 @@ import (
 func Rewrite(path string, tf *parser.TemplateFile) (css string, err error) {
 	v := visitor.New()
 	styles := new(bytes.Buffer)
-	prefix := "jsx-"
+	prefix := "css-"
 
 	v.HTMLTemplate = func(templ *parser.HTMLTemplate) error {
 		class := ""

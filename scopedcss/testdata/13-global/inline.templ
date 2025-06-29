@@ -2,13 +2,13 @@ package main
 
 templ Header(email string, success bool) {
 	@scopedcss_Header.Once() {
-		<style>.buttons.jsx-1ERt5d { display: flex; align-items: center; position: absolute; right: 10px; top: 20px }
-.buttons.jsx-1ERt5d > * { margin-right: 15px }
-.buttons.jsx-1ERt5d > *:last-child { margin-right: 0px }
+		<style>.buttons.css-1ERt5d { display: flex; align-items: center; position: absolute; right: 10px; top: 20px }
+.buttons.css-1ERt5d > * { margin-right: 15px }
+.buttons.css-1ERt5d > *:last-child { margin-right: 0px }
 </style>
 	}
-	<header class="jsx-1ERt5d">
-		<nav class="jsx-1ERt5d buttons">
+	<header class="css-1ERt5d">
+		<nav class="css-1ERt5d buttons">
 			@Button("mailto:" + email) {
 				Contact
 			}
